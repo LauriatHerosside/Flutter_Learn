@@ -20,7 +20,7 @@ class SplashContent extends StatelessWidget {
               children: <Widget>[
                 Spacer(),
                 Text(
-                  "TOKOTO",
+                  "O'Miel",
                   style: TextStyle(
                     fontSize: getProportionateScreenHeight(36),
                     color: kPrimaryColor,

@@ -1,7 +1,11 @@
+import 'dart:ffi';
+
 import 'package:e_commerce/components/splash_content.dart';
 import 'package:e_commerce/constant.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
+
+import 'default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -55,21 +59,7 @@ class _BodyState extends State<Body> {
                       SizedBox(
                         height: 115,
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: getProportionateScreenHeight(56),
-                        child: FlatButton(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            color: kPrimaryColor,
-                            onPressed: () {},
-                            child: Text(
-                              "Continue",
-                              style: TextStyle(
-                                  fontSize: getProportionateScreenWidth(18),
-                                  color: Colors.white),
-                            )),
-                      )
+                      DefaultButton(text: "Continue", press: () {}),
                     ],
                   ),
                 ))
