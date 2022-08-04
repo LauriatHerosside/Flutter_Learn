@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:e_commerce/components/splash_content.dart';
 import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/sign_in/sign_in.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -59,7 +60,12 @@ class _BodyState extends State<Body> {
                       SizedBox(
                         height: 115,
                       ),
-                      DefaultButton(text: "Continue", press: () {}),
+                      DefaultButton(
+                          text: "Continue",
+                          press: () {
+                            Navigator.pushNamed(
+                                context, SignInScreen.routeName);
+                          }),
                     ],
                   ),
                 ))
