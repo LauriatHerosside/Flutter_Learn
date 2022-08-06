@@ -1,3 +1,4 @@
+import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 // import 'package:shop_app/size_config.dart';
 
@@ -19,7 +20,11 @@ const kAnimationDuration = Duration(milliseconds: 200);
 //   color: Colors.black,
 //   height: 1.5,
 // );
-
+final headingStyle = TextStyle(
+    fontSize: getProportionateScreenWidth(28),
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    height: 1.5);
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
