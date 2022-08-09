@@ -1,9 +1,15 @@
+import 'package:e_commerce/components/models/product.dart';
 import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/home/components/popular_product.dart';
 import 'package:e_commerce/screens/home/components/search_field.dart';
+import 'package:e_commerce/screens/home/components/section_title.dart';
+import 'package:e_commerce/screens/home/components/special_offert.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'categories.dart';
+import 'discount_banner.dart';
 import 'home_header.dart';
 import 'icon_btn_counter.dart';
 
@@ -23,39 +29,33 @@ class BodyHomeScreen extends StatelessWidget {
           SizedBox(
             height: getProportionateScreenWidth(30),
           ),
-          DiscountBanner()
+          DiscountBanner(),
+          SizedBox(
+            height: getProportionateScreenWidth(25),
+          ),
+          Categorie(),
+          SizedBox(
+            height: getProportionateScreenWidth(25),
+          ),
+          SpecialOffers(),
+          SizedBox(
+            height: getProportionateScreenWidth(30),
+          ),
+          SectionTitle(text: "Popular Product", press: () {}),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                ...List.generate(demoProducts.length,
+                    (index) => PopularProduct(product: demoProducts[index])),
+                SizedBox(
+                  width: getProportionateScreenWidth(30),
+                )
+              ],
+            ),
+          )
         ],
       )),
-    );
-  }
-}
-
-class DiscountBanner extends StatelessWidget {
-  const DiscountBanner({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(10),
-      ),
-      padding: EdgeInsets.symmetric(
-          horizontal: getProportionateScreenWidth(20),
-          vertical: getProportionateScreenWidth(15)),
-      width: double.infinity,
-      // height: 90,
-      decoration: BoxDecoration(
-          color: Color(0xFF4A3298), borderRadius: BorderRadius.circular(10)),
-      child: Text.rich(TextSpan(
-          text: "Supprise de la semaine \n",
-          style: TextStyle(color: Colors.white),
-          children: [
-            TextSpan(
-                text: "Reduction de 20% ",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))
-          ])),
     );
   }
 }
