@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/complete_profile/complete_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/custom_surfix_icon.dart';
@@ -15,9 +16,9 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  late String email;
-  late String password;
-  late String confirm_password;
+  String? email;
+  String? password;
+  String? confirm_password;
   final List<String> errors = [];
   void addError({required String error}) {
     if (!errors.contains(error))
@@ -58,7 +59,10 @@ class _SignUpFormState extends State<SignUpForm> {
             DefaultButton(
                 text: "Continue",
                 press: () {
-                  if (_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushNamed(
+                        context, CompleteProfileScreen.routeName);
+                  }
                 })
           ],
         ),
@@ -80,7 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
         validator: (value) {
           if (value!.isEmpty) {
             return "";
-          } else if (password != confirm_password) {
+          } else if (password != value) {
             addError(error: kMatchPassError);
             return "";
           }
