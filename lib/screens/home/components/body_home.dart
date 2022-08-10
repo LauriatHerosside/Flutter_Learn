@@ -1,5 +1,6 @@
 import 'package:e_commerce/components/models/product.dart';
 import 'package:e_commerce/constant.dart';
+import 'package:e_commerce/screens/detail/details_screen.dart';
 import 'package:e_commerce/screens/home/components/popular_product.dart';
 import 'package:e_commerce/screens/home/components/search_field.dart';
 import 'package:e_commerce/screens/home/components/section_title.dart';
@@ -46,8 +47,15 @@ class BodyHomeScreen extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                ...List.generate(demoProducts.length,
-                    (index) => PopularProduct(product: demoProducts[index])),
+                ...List.generate(
+                    demoProducts.length,
+                    (index) => ProductCard(
+                          product: demoProducts[index],
+                          press: () => Navigator.pushNamed(
+                              context, DetailScreen.routeName,
+                              arguments: ProductDetailsArguments(
+                                  product: demoProducts[index])),
+                        )),
                 SizedBox(
                   width: getProportionateScreenWidth(30),
                 )
